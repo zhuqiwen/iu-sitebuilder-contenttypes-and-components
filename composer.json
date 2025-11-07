@@ -1,0 +1,25 @@
+{
+  "name": "iu-rsb/sitebuilder-contenttypes-and-components",
+  "description": "build sitebuilder assets quickly",
+  "type": "library",
+  "license": "GPL-3.0-only",
+  "version": "0.0.9",
+  "authors": [
+    {
+      "name": "Qiwen Zhu",
+      "email": "qiwzhu@iu.edu"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Edu\\IU\\WCMS\\SiteBuilder\\ContentTypesAndComponents\\": "src"
+    }
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "iu-vpcm-dc/wcms-webservice": "dev-main",
+    "iu-webtech/wcms-generic-tool": "dev-main",
+    "iu-rsb/structured-data-nodes": "dev-main",
+    "phpunit/phpunit": "^9.5"
+  }
+}
