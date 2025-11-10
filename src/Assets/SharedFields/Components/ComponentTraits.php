@@ -11,7 +11,7 @@ trait ComponentTraits{
         return $this->groupIdentifier;
     }
 
-    public function finishConstructor()
+    public function finishConstructor(): void
     {
         $this->setGroupIdentifier();
         $this->setChildrenIdentifiers();

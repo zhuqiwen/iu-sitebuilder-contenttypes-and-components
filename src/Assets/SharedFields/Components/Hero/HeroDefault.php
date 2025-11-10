@@ -154,6 +154,7 @@ class HeroDefault implements ComponentInterface{
         $this->identifierCtaLink = 'link';
         $this->identifierCtaLinkParameters = 'link-parameters';
         $this->identifierShowCalloutCard = 'show-callout-card';
+        $this->identifierCallout = 'callout-card';
         $this->identifierCalloutEyebrow = 'eyebrow';
         $this->identifierCalloutTitle = 'title';
         $this->identifierCalloutTeaser = 'teaser';
