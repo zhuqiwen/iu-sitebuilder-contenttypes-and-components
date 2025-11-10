@@ -28,15 +28,14 @@ class RichText implements ComponentInterface{
 
     public function __construct(string $heading = '', string $headingLevel = 'h2', string $text = 'some default text', string $htmlId = '')
     {
-        $this->setGroupIdentifier();
-        $this->setChildrenIdentifiers();
+
 
         $this->heading = $heading;
         $this->headingLevel = $headingLevel;
         $this->htmlId = $htmlId;
         $this->text = $text;
 
-        $this->constructChildrenNodes();
+        $this->finishConstructor();
 
     }
 

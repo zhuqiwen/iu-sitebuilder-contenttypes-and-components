@@ -10,4 +10,11 @@ trait ComponentTraits{
     {
         return $this->groupIdentifier;
     }
+
+    public function finishConstructor()
+    {
+        $this->setGroupIdentifier();
+        $this->setChildrenIdentifiers();
+        $this->constructChildrenNodes();
+    }
 }

@@ -74,6 +74,8 @@ class HeroDefault implements ComponentInterface{
         $this->calloutLinkPath = $calloutLinkPath;
         $this->calloutLinkParameters = $calloutLinkParameters;
 
+        $this->finishConstructor();
+
     }
 
     public function constructComponentGroupNode(): GroupNode
