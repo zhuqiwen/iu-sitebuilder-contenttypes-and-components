@@ -10,6 +10,7 @@ abstract class ContentTypeAbstract implements ContentTypeInterface{
     {
         $this->wcms = $wcms;
         $this->setPageNameAndParentFolderPath($pagePath);
+        $this->commonSiteName = 'IU-BUILDER.common';
 
     }
 
