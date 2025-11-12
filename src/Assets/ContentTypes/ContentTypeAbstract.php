@@ -2,6 +2,8 @@
 
 namespace Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes;
 
+use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Interface\ContentTypeInterface;
+use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Traits\ContentTypeTraits;
 use Edu\IU\Wcms\WebService\WCMSClient;
 
 abstract class ContentTypeAbstract implements ContentTypeInterface{

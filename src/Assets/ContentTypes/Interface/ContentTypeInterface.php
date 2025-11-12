@@ -1,8 +1,6 @@
 <?php
 
-namespace Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes;
-
-use Edu\IU\Framework\GenericUpdater\Asset\Foldered\Page;
+namespace Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Interface;
 
 interface ContentTypeInterface{
 

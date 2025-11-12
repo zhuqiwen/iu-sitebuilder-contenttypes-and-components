@@ -1,8 +1,7 @@
 <?php
 
-namespace Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes;
+namespace Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Traits;
 
-use Edu\IU\Framework\GenericUpdater\Asset\Foldered\Page;
 use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Logger;
 use Edu\IU\Wcms\WebService\WCMSClient;
 

@@ -4,30 +4,22 @@ namespace Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes;
 
 
 
-use Edu\IU\Framework\GenericUpdater\Asset\Foldered\Page;
-use Edu\IU\RSB\StructuredDataNodes\GroupNode;
+use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Interface\ContentPageInterface;
+use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Interface\ContentTypeInterface;
+use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Interface\PageWithSideNavInterface;
+use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Traits\ContentPageTraits;
+use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Traits\ContentTypeTraits;
+use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Traits\PageWithSideNavTraits;
 
-class PageProfile implements ContentTypeInterface, ContentPageInterface{
+class PageProfile extends ContentTypeAbstract implements ContentTypeInterface, ContentPageInterface, PageWithSideNavInterface{
     use ContentTypeTraits;
+    use ContentPageTraits;
+    use PageWithSideNavTraits;
 
-    public function constructPageContentGroupNode(): GroupNode
-    {
-        // TODO: Implement constructPageContentGroupNode() method.
-    }
 
-    public function constructHeroGroupNode(): GroupNode
+    public function setContentTypePath(): void
     {
-        // TODO: Implement constructHeroGroupNode() method.
-    }
-
-    public function constructPageSettingsGroupNode(): GroupNode
-    {
-        // TODO: Implement constructPageSettingsGroupNode() method.
-    }
-
-    public function createPage(): Page
-    {
-        // TODO: Implement createPage() method.
+        $this->contentTypePath = $this->commonSiteName . ':' . 'Page - Profile';
     }
 
     public function constructNewAsset(): \stdClass
