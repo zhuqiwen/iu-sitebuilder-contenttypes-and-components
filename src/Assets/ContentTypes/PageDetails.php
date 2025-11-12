@@ -4,9 +4,7 @@ namespace Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes;
 
 
 
-use Edu\IU\Framework\GenericUpdater\Asset\Foldered\Page;
 use Edu\IU\RSB\StructuredDataNodes\GroupNode;
-use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Logger;
 use Edu\IU\Wcms\WebService\WCMSClient;
 
 class PageDetails extends ContentTypeAbstract implements ContentPageInterface {
@@ -21,7 +19,6 @@ class PageDetails extends ContentTypeAbstract implements ContentPageInterface {
 
     public function __construct(
         WCMSClient $wcms,
-        Logger     $logger,
         string $pagePath,
         ?GroupNode $pageContentGroupNode = null,
         ?GroupNode $heroGroupNode = null,
@@ -29,7 +26,7 @@ class PageDetails extends ContentTypeAbstract implements ContentPageInterface {
         array $metadataArray = []
     ){
 
-        parent::__construct($wcms, $logger, $pagePath);
+        parent::__construct($wcms, $pagePath);
         $this->setChildrenNodeIdentifiers();
         $this->setContentTypePath();
         $this->metadataArray = $metadataArray;

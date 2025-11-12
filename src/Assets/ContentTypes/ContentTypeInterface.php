@@ -6,7 +6,6 @@ use Edu\IU\Framework\GenericUpdater\Asset\Foldered\Page;
 
 interface ContentTypeInterface{
 
-    public function createPage():Page;
 
     public function constructNewAsset():\stdClass;
 
