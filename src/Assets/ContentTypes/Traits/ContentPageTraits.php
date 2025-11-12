@@ -23,11 +23,11 @@ trait ContentPageTraits{
     public function __construct(
         WCMSClient $wcms,
         string $pagePath,
+        array $metadataArray = [],
         ?GroupNode $pageContentGroupNode = null,
         ?GroupNode $heroGroupNode = null,
         ?GroupNode $pageSettingsGroupNode = null,
         ?GroupNode $profileGroupNode = null,
-        array $metadataArray = []
     ){
 
         parent::__construct($wcms, $pagePath);
