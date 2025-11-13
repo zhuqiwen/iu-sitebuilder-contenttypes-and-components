@@ -20,7 +20,7 @@ trait ContentTypeTraits{
     {
         $pagePath = trim($pagePath, DIRECTORY_SEPARATOR);
         $pathArray = explode(DIRECTORY_SEPARATOR, $pagePath);
-        $this->pageName = array_shift($pathArray);
+        $this->pageName = array_pop($pathArray);
         $this->pageParentFolderPath = empty($pathArray) ? DIRECTORY_SEPARATOR : implode(DIRECTORY_SEPARATOR, $pathArray);
     }
 
