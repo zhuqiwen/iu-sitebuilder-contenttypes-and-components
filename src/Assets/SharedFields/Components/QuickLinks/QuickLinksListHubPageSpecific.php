@@ -29,12 +29,12 @@ class QuickLinksListHubPageSpecific implements ComponentInterface, QuickLinksLis
     public DropdownNode $nodeHeadingLevel;
 
 
-    public function __construct(string $title = '', string $headingLevel = 'h2', array $listItemsArray = [])
+    public function __construct(string $title = '', string $headingLevel = 'h2', array $quickLinksListItemObjsArray = [])
     {
         $this->type = 'manual';
         $this->title = $title;
         $this->headingLevel = $headingLevel;
-        $this->listItemsArray = $listItemsArray;
+        $this->listItemsArray = $quickLinksListItemObjsArray;
 
         $this->finishConstructor();
     }
@@ -52,6 +52,8 @@ class QuickLinksListHubPageSpecific implements ComponentInterface, QuickLinksLis
             }
 
         }
+
+        return $groupNode;
     }
 
     public function constructChildrenNodes(): void
