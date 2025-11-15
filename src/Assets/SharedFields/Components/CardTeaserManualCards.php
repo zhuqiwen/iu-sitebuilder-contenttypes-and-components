@@ -44,6 +44,8 @@ class CardTeaserManualCards implements ComponentInterface{
         $groupNode->addChild($this->sectionIntro->constructComponentGroupNode());
         $groupNode->addChild($this->cards->constructComponentGroupNode());
         $groupNode->addChild($this->nodeHtmlId);
+
+        return $groupNode;
     }
 
     public function constructChildrenNodes(): void
