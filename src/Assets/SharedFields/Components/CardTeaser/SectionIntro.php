@@ -91,10 +91,10 @@ class SectionIntro implements ComponentInterface {
     public function setChildrenIdentifiers(): void
     {
         $this->identifierAlignment = 'alignment';
-        $this->headingLevel = 'heading-level';
-        $this->title = 'title';
-        $this->eyebrow = 'eyebrow';
-        $this->teaser = 'teaser';
-        $this->showCTAs = 'show-ctas';
+        $this->identifierHeadingLevel = 'heading-level';
+        $this->identifierTitle = 'title';
+        $this->identifierEyebrow = 'eyebrow';
+        $this->identifierTeaser = 'teaser';
+        $this->identifierShowCTAs = 'show-ctas';
     }
 }
