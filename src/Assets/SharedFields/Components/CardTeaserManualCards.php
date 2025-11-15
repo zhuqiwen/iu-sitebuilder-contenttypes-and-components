@@ -61,7 +61,7 @@ class CardTeaserManualCards implements ComponentInterface{
 
     public function setChildrenIdentifiers(): void
     {
-        $this->identifierSource = 'sources';
+        $this->identifierSource = 'source';
         $this->identifierHtmlId = 'id';
     }
 }

@@ -21,7 +21,7 @@ class CardTeaserFeed extends CardTeaserManualCards implements ComponentInterface
 
     public function __construct(SectionIntro $sectionIntro, Feed $feed, string $htmlId = '')
     {
-        $this->source = 'cards';
+        $this->source = 'feed';
         $this->sectionIntro = $sectionIntro;
         $this->feed = $feed;
         $this->htmlId = $htmlId;
