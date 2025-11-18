@@ -71,7 +71,7 @@ class BannerImage implements ComponentInterface, HeroInterface {
     public function setChildrenIdentifiers(): void
     {
         $this->identifierImage = 'image';
-        $this->identifierSmallImage = 'small-image';
+        $this->identifierSmallImage = 'image-small';
         $this->identifierAlt = 'alt';
     }
 }
