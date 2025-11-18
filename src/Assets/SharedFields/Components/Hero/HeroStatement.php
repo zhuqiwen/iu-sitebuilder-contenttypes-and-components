@@ -69,6 +69,8 @@ class HeroStatement implements ComponentInterface,HeroInterface {
         $this->ctaObjsArray = $ctaObjsArray;
         $this->bannerImageObjArray = $bannerImageObjsArray;
         $this->bannerCallout = $bannerCallout ?? new BannerCallout();
+
+        $this->finishConstructor();
     }
 
     public function constructComponentGroupNode(): GroupNode
