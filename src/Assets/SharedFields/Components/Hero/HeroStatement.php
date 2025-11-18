@@ -29,7 +29,7 @@ class HeroStatement implements ComponentInterface,HeroInterface {
 
     public BannerCallout $bannerCallout;
     public array $bannerImageObjArray;
-    public array $ctaObjArray;
+    public array $ctaObjsArray;
 
 
     //identifiers
@@ -49,6 +49,27 @@ class HeroStatement implements ComponentInterface,HeroInterface {
     public CheckboxNode $nodeShowBannerImages;
     public CheckboxNode $nodeShowBannerCallout;
 
+    public function __construct(
+        string $eyebrow = '',
+        string $title = '',
+        string $teaser = '',
+        string $showCTAs= '',
+        array $ctaObjsArray = [],
+        string $showBannerImages = '',
+        array $bannerImageObjsArray = [],
+        string $showBannerCallout = '',
+        BannerCallout | null $bannerCallout = null )
+    {
+        $this->eyebrow = $eyebrow;
+        $this->title = $title;
+        $this->teaser = $teaser;
+        $this->showCTAs = $showCTAs;
+        $this->showBannerImages = $showBannerImages;
+        $this->showBannerCallout = $showBannerCallout;
+        $this->ctaObjsArray = $ctaObjsArray;
+        $this->bannerImageObjArray = $bannerImageObjsArray;
+        $this->bannerCallout = $bannerCallout;
+    }
 
     public function constructComponentGroupNode(): GroupNode
     {
@@ -65,7 +86,7 @@ class HeroStatement implements ComponentInterface,HeroInterface {
             }
         }
 
-        foreach ($this->ctaObjArray as $ctaObj) {
+        foreach ($this->ctaObjsArray as $ctaObj) {
             if ($ctaObj instanceof CTA) {
                 $heroGroupNode->addChild($ctaObj->constructComponentGroupNode());
             }
