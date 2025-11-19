@@ -59,6 +59,8 @@ class VideoOnline implements ComponentInterface{
         string $descriptionsFilePath = '',
         string $urlId = '',
         string $urlPath = '',
+        string $videoIdDescribedId = '',
+        string $videoIdDescribedPath = '',
         string $title = '',
         string $transcript = '',
         string $caption = '',
@@ -72,6 +74,8 @@ class VideoOnline implements ComponentInterface{
         $this->descriptionsFilePath = $descriptionsFilePath;
         $this->urlId = $urlId;
         $this->urlPath = $urlPath;
+        $this->videoIdDescribedId = $videoIdDescribedId;
+        $this->videoIdDescribedPath = $videoIdDescribedPath;
         $this->title = $title;
         $this->transcript = $transcript;
         $this->caption = $caption;
