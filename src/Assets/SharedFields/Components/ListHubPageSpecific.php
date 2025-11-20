@@ -68,7 +68,7 @@ class ListHubPageSpecific implements ComponentInterface{
 
     public function setGroupIdentifier(): void
     {
-        $this->groupIdentifier = 'list-item';
+        $this->groupIdentifier = 'list-hub';
     }
 
     public function setChildrenIdentifiers(): void
