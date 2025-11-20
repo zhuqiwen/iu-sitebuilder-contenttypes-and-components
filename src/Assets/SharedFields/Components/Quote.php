@@ -73,8 +73,4 @@ class Quote implements ComponentInterface{
         $this->identifierAvatar = 'avatar';
     }
 
-    public function html2String(string $html): string
-    {
-
-    }
 }
