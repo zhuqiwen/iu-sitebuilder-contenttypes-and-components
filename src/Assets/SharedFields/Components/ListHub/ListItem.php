@@ -22,8 +22,6 @@ class ListItem extends QuickLinksListItem{
 
         parent::__construct($listItemText, $listItemLinkId, $listItemLinkPath, $listItemLinkType, $listItemEyebrow, $listItemDescription, $listItemLinkParameters);
 
-        $this->finishConstructor();
-
     }
 
 
