@@ -20,7 +20,7 @@ class Callout implements ComponentInterface{
     public string $teaser;
     public string $showCTA;
     public string $htmlId;
-    public CTA $cta;
+    public array $ctasArray;
 
     //identifiers
     public readonly string $identifierHeadingLevel;
@@ -40,7 +40,7 @@ class Callout implements ComponentInterface{
     public CheckboxNode $nodeShowCTA;
     public TextInputNode $nodeHtmlId;
 
-    public function __construct(string $headingLevel = '', string $stickerId = '', string $eyebrow = '', string $title = '', string $teaser = '',string $showCTA = '', CTA | null $cta = null, string $htmlId = '')
+    public function __construct(string $headingLevel = '', string $stickerId = '', string $eyebrow = '', string $title = '', string $teaser = '',string $showCTA = '', array $ctasArray = [], string $htmlId = '')
     {
         $this->headingLevel = $headingLevel;
         $this->stickerId = $stickerId;
@@ -48,7 +48,7 @@ class Callout implements ComponentInterface{
         $this->title = $title;
         $this->teaser = $teaser;
         $this->showCTA = $showCTA;
-        $this->cta = $cta;
+        $this->ctasArray = $ctasArray;
         $this->htmlId = $htmlId;
 
         $this->finishConstructor();
@@ -63,7 +63,12 @@ class Callout implements ComponentInterface{
         $groupNode->addChild($this->nodeTitle);
         $groupNode->addChild($this->nodeTeaser);
         $groupNode->addChild($this->nodeShowCTA);
-        $groupNode->addChild($this->cta->constructComponentGroupNode());
+        foreach ($this->ctasArray as $cta) {
+            if ($cta instanceof CTA) {
+                $groupNode->addChild($cta->constructComponentGroupNode());
+            }
+        }
+
         $groupNode->addChild($this->nodeHtmlId);
 
         return $groupNode;
