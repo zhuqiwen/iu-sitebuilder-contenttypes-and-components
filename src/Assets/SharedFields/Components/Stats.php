@@ -4,6 +4,7 @@ namespace Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\SharedFields\
 
 use Edu\IU\RSB\StructuredDataNodes\GroupNode;
 use Edu\IU\RSB\StructuredDataNodes\Text\TextInputNode;
+use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\SharedFields\Components\Stats\Stat;
 use unit\BaseTest;
 
 class Stats implements ComponentInterface{
@@ -16,10 +17,7 @@ class Stats implements ComponentInterface{
     public string $htmlId;
 
     //identifiers
-    public readonly string $identifierGroupStat;
-    public readonly string $identifierStatSticker;
-    public readonly string $identifierStatNumber;
-    public readonly string $identifierStatText;
+
     public readonly string $identifierNote;
     public readonly string $identifierHtmlId;
 
@@ -34,21 +32,21 @@ class Stats implements ComponentInterface{
 
     public function __construct(array $statArray = [], string $note = '', string $htmlId = '')
     {
-        $this->setGroupIdentifier();
-        $this->setChildrenIdentifiers();
+
 
         $this->statArray = $statArray;
         $this->note = $note;
         $this->htmlId = $htmlId;
 
-        $this->constructChildrenNodes();
+        $this->finishConstructor();
     }
 
     public function constructComponentGroupNode(): GroupNode
     {
         $groupNode = new GroupNode($this->groupIdentifier);
-        foreach ($this->groupNodeStatArray as $groupNodeStat) {
-            $groupNode->addChild($groupNodeStat);
+        foreach ($this->statArray as $stat) {
+            if ($stat instanceof Stat)
+            $groupNode->addChild($stat->constructComponentGroupNode());
         }
         $groupNode->addChild($this->nodeNote);
         $groupNode->addChild($this->nodeHtmlId);
@@ -60,16 +58,6 @@ class Stats implements ComponentInterface{
     {
         $this->nodeNote = new TextInputNode($this->identifierNote, $this->note);
         $this->nodeHtmlId = new TextInputNode($this->identifierHtmlId, $this->htmlId);
-
-        $this->groupNodeStatArray = [];
-        foreach ($this->statArray as $stat) {
-            $nodeStat = new GroupNode($this->identifierGroupStat);
-            $nodeStat->addChild(new TextInputNode($this->identifierStatSticker, $stat['sticker'] ?? 'Sticker Not Set'));
-            $nodeStat->addChild(new TextInputNode($this->identifierStatNumber, $stat['number'] ?? 'Number Not Set'));
-            $nodeStat->addChild(new TextInputNode($this->identifierStatText, $stat['text'] ?? 'Label Not Set'));
-
-            $this->groupNodeStatArray[] = $nodeStat;
-        }
     }
 
     public function setGroupIdentifier(): void
@@ -80,10 +68,6 @@ class Stats implements ComponentInterface{
 
     public function setChildrenIdentifiers(): void
     {
-        $this->identifierGroupStat = 'stat';
-        $this->identifierStatSticker = 'sticker';
-        $this->identifierStatNumber = 'number';
-        $this->identifierStatText = 'text';
         $this->identifierNote = 'note';
         $this->identifierHtmlId = 'id';
     }
