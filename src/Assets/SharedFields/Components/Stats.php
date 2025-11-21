@@ -45,8 +45,9 @@ class Stats implements ComponentInterface{
     {
         $groupNode = new GroupNode($this->groupIdentifier);
         foreach ($this->statArray as $stat) {
-            if ($stat instanceof Stat)
-            $groupNode->addChild($stat->constructComponentGroupNode());
+            if ($stat instanceof Stat){
+                $groupNode->addChild($stat->constructComponentGroupNode());
+            }
         }
         $groupNode->addChild($this->nodeNote);
         $groupNode->addChild($this->nodeHtmlId);
