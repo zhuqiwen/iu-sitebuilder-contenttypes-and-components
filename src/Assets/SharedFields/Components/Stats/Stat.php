@@ -29,7 +29,7 @@ class Stat implements ComponentInterface{
     {
         $this->sticker = $sticker;
         $this->number = $number;
-        $this->text = $text;
+        $this->text = html_entity_decode(strip_tags($text), ENT_QUOTES, 'UTF-8');
 
         $this->finishConstructor();
     }
