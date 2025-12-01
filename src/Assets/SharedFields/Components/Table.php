@@ -61,7 +61,7 @@ class Table implements ComponentInterface{
     {
         $this->nodeTitle = new TextInputNode($this->identifierTitle, $this->title);
         $this->nodeShowTitle = new CheckboxNode($this->identifierShowTitle, [$this->showTitle]);
-        $this->nodeVariants = new CheckboxNode($this->identifierVariants, [$this->variants]);
+        $this->nodeVariants = new CheckboxNode($this->identifierVariants, $this->variants);
     }
 
     public function setGroupIdentifier(): void
