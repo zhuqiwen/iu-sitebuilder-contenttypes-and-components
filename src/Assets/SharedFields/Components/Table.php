@@ -15,8 +15,8 @@ class Table implements ComponentInterface{
     //content
     public string $title;
     public string $showTitle;
-    public string $variants;
-    public array $headerObjsArray;
+    public array $variants;
+    public Header $headerObj;
     public array $rowObjsArray;
 
     //identifiers
@@ -29,12 +29,12 @@ class Table implements ComponentInterface{
     public CheckboxNode $nodeShowTitle;
     public CheckboxNode $nodeVariants;
 
-    public function __construct(string $title = '', string $showTitle = '', string $variants = '', array $headerObjsArray = [], array $rowObjsArray = [])
+    public function __construct(string $title = '', string $showTitle = '', array $variants = [], ?Header $headerObj = null , array $rowObjsArray = [])
     {
         $this->title = $title;
         $this->showTitle = $showTitle;
-        $this->variants = in_array($variants, ['striped', 'plain', 'compact']) ? $variants : 'plain';
-        $this->headerObjsArray = $headerObjsArray;
+        $this->variants = $variants;
+        $this->headerObj = $headerObj;
         $this->rowObjsArray = $rowObjsArray;
 
         $this->finishConstructor();
@@ -46,11 +46,7 @@ class Table implements ComponentInterface{
         $groupNode->addChild($this->nodeTitle);
         $groupNode->addChild($this->nodeShowTitle);
         $groupNode->addChild($this->nodeVariants);
-        foreach ($this->headerObjsArray as $headerObj) {
-            if ($headerObj instanceof Header){
-                $groupNode->addChild($headerObj->constructComponentGroupNode());
-            }
-        }
+        $groupNode->addChild($this->headerObj->constructComponentGroupNode());
 
         foreach ($this->rowObjsArray as $rowObj) {
             if ($rowObj instanceof Row){
@@ -65,7 +61,7 @@ class Table implements ComponentInterface{
     {
         $this->nodeTitle = new TextInputNode($this->identifierTitle, $this->title);
         $this->nodeShowTitle = new CheckboxNode($this->identifierShowTitle, [$this->showTitle]);
-        $this->nodeVariants = new CheckboxNode($this->identifierVariants, $this->variants);
+        $this->nodeVariants = new CheckboxNode($this->identifierVariants, [$this->variants]);
     }
 
     public function setGroupIdentifier(): void
