@@ -26,7 +26,7 @@ class RichText implements ComponentInterface{
     public WysiwygNode $nodeText;
     public TextInputNode $nodeHtmlId;
 
-    public function __construct(string $heading = '', string $headingLevel = 'h2', string $text = 'some default text', string $htmlId = '')
+    public function __construct(string $heading = '', string $headingLevel = 'h2', string $text = '', string $htmlId = '')
     {
 
 
