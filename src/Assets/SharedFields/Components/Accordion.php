@@ -46,6 +46,8 @@ class Accordion implements ComponentInterface{
 
         $groupNode->addChild($this->nodeHeadingLevel);
         $groupNode->addChild($this->nodeHtmlId);
+
+        return $groupNode;
     }
 
     /**
