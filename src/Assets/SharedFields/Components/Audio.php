@@ -45,8 +45,6 @@ class Audio implements ComponentInterface{
 
     public function __construct(string $mp3Id = '', string $mp3Path = '', string $vttId = '', string $vttPath = '', string $headingLevel = '', string $caption = '', string $attribution = '', string $transcript = '', string $htmlId = '')
     {
-        $this->setGroupIdentifier();
-        $this->setChildrenIdentifiers();
 
         $this->mp3Id = $mp3Id;
         $this->mp3Path = $mp3Path;
@@ -58,7 +56,8 @@ class Audio implements ComponentInterface{
         $this->transcript = $transcript;
         $this->htmlId = $htmlId;
 
-        $this->constructChildrenNodes();
+
+        $this->finishConstructor();
     }
 
     public function constructComponentGroupNode(): GroupNode
