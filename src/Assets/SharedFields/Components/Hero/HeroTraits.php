@@ -11,6 +11,6 @@ trait HeroTraits{
      */
     public function constructHeroGroupNode(): GroupNode
     {
-        $this->constructComponentGroupNode();
+        return $this->constructComponentGroupNode();
     }
 }
