@@ -15,7 +15,6 @@ class HeroBanner extends BannerImage{
     public string $caption;
     public string $showQuickLinks;
     public ?ListHub $listHub;
-    public array $ctasArray;
 
     //identifiers
     public readonly string $identifierCaption;
@@ -46,11 +45,7 @@ class HeroBanner extends BannerImage{
         $groupNode->setValueIdentifier($this->groupIdentifier);
         $groupNode->addChild($this->nodeCaption);
         $groupNode->addChild($this->nodeShowQuickLinks);
-        foreach ($this->ctasArray as $cta) {
-            if ($cta instanceof CTA) {
-                $groupNode->addChild($cta->constructComponentGroupNode());
-            }
-        }
+
         $groupNode->addChild($this->listHub->constructComponentGroupNode());
 
         return $groupNode;
