@@ -22,6 +22,7 @@ class HeroBanner extends BannerImage{
     public readonly string $identifierShowQuickLinks;
     public readonly string $identifierImage;
     public readonly string $identifierSmallImage;
+    public readonly string $identifierAlt;
 
     //nodes
     public TextInputNode $nodeCaption;
@@ -74,7 +75,7 @@ class HeroBanner extends BannerImage{
         $this->identifierSmallImage = 'banner-image-small';
         $this->identifierCaption = 'caption';
         $this->identifierShowQuickLinks = 'show-quick-links';
-        parent::setChildrenIdentifiers();
+        $this->identifierAlt = 'alt';
     }
 
 
