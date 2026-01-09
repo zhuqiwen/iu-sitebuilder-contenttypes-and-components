@@ -10,9 +10,10 @@ use Edu\IU\RSB\StructuredDataNodes\Text\WysiwygNode;
 use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\SharedFields\Components\ComponentInterface;
 use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\SharedFields\Components\ComponentTraits;
 
-class HeroDefault implements ComponentInterface{
+class HeroDefault implements ComponentInterface, HeroInterface {
 
     use ComponentTraits;
+    use HeroTraits;
 
     //content
     public string $eyebrow;
@@ -161,4 +162,6 @@ class HeroDefault implements ComponentInterface{
         $this->identifierCalloutLink = 'link';
         $this->identifierCalloutLinkParameters = 'link-parameters';
     }
+
+
 }
