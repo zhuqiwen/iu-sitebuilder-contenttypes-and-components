@@ -46,7 +46,9 @@ class HeroBanner extends BannerImage{
         $groupNode->addChild($this->nodeCaption);
         $groupNode->addChild($this->nodeShowQuickLinks);
 
-        $groupNode->addChild($this->listHub->constructComponentGroupNode());
+        if ($this->listHub instanceof ListHub){
+            $groupNode->addChild($this->listHub->constructComponentGroupNode());
+        }
 
         return $groupNode;
 
