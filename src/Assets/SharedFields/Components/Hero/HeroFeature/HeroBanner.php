@@ -74,6 +74,7 @@ class HeroBanner extends BannerImage{
         $this->identifierSmallImage = 'banner-image-small';
         $this->identifierCaption = 'caption';
         $this->identifierShowQuickLinks = 'show-quick-links';
+        parent::setChildrenIdentifiers();
     }
 
 
