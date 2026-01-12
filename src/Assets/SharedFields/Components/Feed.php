@@ -39,6 +39,8 @@ class Feed implements ComponentInterface{
         $groupNode = new GroupNode($this->groupIdentifier);
         $groupNode->addChild($this->nodeFeedLink);
         $groupNode->addChild($this->nodeFeedMax);
+
+        return $groupNode;
     }
 
     public function constructChildrenNodes(): void
