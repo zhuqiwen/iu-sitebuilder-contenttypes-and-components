@@ -38,6 +38,8 @@ class Code implements ComponentInterface{
         $groupNode = new GroupNode($this->groupIdentifier);
         $groupNode->addChild($this->nodeTitle);
         $groupNode->addChild($this->nodeFile);
+
+        return $groupNode;
     }
 
     public function constructChildrenNodes(): void
