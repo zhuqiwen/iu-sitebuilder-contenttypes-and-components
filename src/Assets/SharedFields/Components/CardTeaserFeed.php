@@ -29,8 +29,12 @@ class CardTeaserFeed extends CardTeaserManualCards implements ComponentInterface
     }
     public function constructComponentGroupNode(): GroupNode
     {
-        $groupNode = parent::constructComponentGroupNode();
+        $groupNode = new GroupNode($this->groupIdentifier);
+        $groupNode->addChild($this->nodeSource);
+        $groupNode->addChild($this->sectionIntro->constructComponentGroupNode());
         $groupNode->addChild($this->feed->constructComponentGroupNode());
+        $groupNode->addChild($this->nodeHtmlId);
+
 
         return $groupNode;
     }
