@@ -22,8 +22,4 @@ class PageProfile extends ContentTypeAbstract implements ContentTypeInterface, C
         $this->contentTypePath = $this->commonSiteName . ':' . 'Page - Profile';
     }
 
-    public function constructNewAsset(): \stdClass
-    {
-        // TODO: Implement constructNewAsset() method.
-    }
 }
