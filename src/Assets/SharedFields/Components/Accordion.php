@@ -12,21 +12,25 @@ class Accordion implements ComponentInterface{
     use ComponentTraits;
 
     //content
+    public string $header;
     public array $panelsArray;
     public string $headingLevel;
     public string $htmlId;
 
     //identifiers
+    public string $identifierHeader;
     public string $identifierHeadingLevel;
     public string $identifierHtmlId;
 
     //nodes
+    public TextInputNode $nodeHeader;
     public DropdownNode $nodeHeadingLevel;
     public TextInputNode $nodeHtmlId;
 
-    public function __construct(array $panelsArray = [], string $headingLevel = '', string $htmlId = '')
+    public function __construct(array $panelsArray = [], string $header = '', string $headingLevel = '', string $htmlId = '')
     {
         $this->panelsArray = $panelsArray;
+        $this->header = $header;
         $this->headingLevel = $headingLevel;
         $this->htmlId = $htmlId;
         $this->finishConstructor();
@@ -44,6 +48,7 @@ class Accordion implements ComponentInterface{
             }
         }
 
+        $groupNode->addChild($this->nodeHeader);
         $groupNode->addChild($this->nodeHeadingLevel);
         $groupNode->addChild($this->nodeHtmlId);
 
@@ -55,6 +60,7 @@ class Accordion implements ComponentInterface{
      */
     public function constructChildrenNodes(): void
     {
+        $this->nodeHeader = new TextInputNode($this->identifierHeader, $this->header);
         $this->nodeHeadingLevel = new DropdownNode($this->identifierHeadingLevel, $this->headingLevel);
         $this->nodeHtmlId = new TextInputNode($this->identifierHtmlId, $this->htmlId);
     }
@@ -72,6 +78,7 @@ class Accordion implements ComponentInterface{
      */
     public function setChildrenIdentifiers(): void
     {
+        $this->identifierHeader = 'header';
         $this->identifierHeadingLevel = 'heading-level';
         $this->identifierHtmlId = 'id';
     }
