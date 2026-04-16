@@ -50,7 +50,24 @@ trait ContentPageTraits{
 
     public function constructNewAsset(): \stdClass
     {
-        $data = [
+        $data = $this->constructNewAssetArray();
+
+        //to recursively convert $data to stdClass obj
+        return json_decode(json_encode($data));
+    }
+
+    public function constructNewAssetWithPath(): \stdClass
+    {
+        $data = $this->constructNewAssetArray();
+        $data['path'] = $this->pageParentFolderPath . DIRECTORY_SEPARATOR . $this->pageName;
+
+        //to recursively convert $data to stdClass obj
+        return json_decode(json_encode($data));
+    }
+
+    public function constructNewAssetArray():array
+    {
+        return [
             'name' => $this->pageName,
             'parentFolderPath' => $this->pageParentFolderPath,
             'metadata' => $this->metadataArray,
@@ -67,9 +84,6 @@ trait ContentPageTraits{
             ],
             'linkRewriting' => $this->linkRewriting,
         ];
-
-        //to recursively convert $data to stdClass obj
-        return json_decode(json_encode($data));
     }
 
 }
