@@ -59,7 +59,8 @@ trait ContentPageTraits{
     public function constructNewAssetWithPath(): \stdClass
     {
         $data = $this->constructNewAssetArray();
-        $data['path'] = $this->pageParentFolderPath . DIRECTORY_SEPARATOR . $this->pageName;
+        $data['path'] = trim($this->pageParentFolderPath . DIRECTORY_SEPARATOR . $this->pageName, DIRECTORY_SEPARATOR);
+
 
         //to recursively convert $data to stdClass obj
         return json_decode(json_encode($data));
