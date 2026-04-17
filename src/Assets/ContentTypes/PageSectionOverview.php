@@ -16,7 +16,7 @@ class PageSectionOverview extends ContentTypeAbstract implements ContentTypeInte
 
     public function setContentTypePath(): void
     {
-        $this->contentTypePath = $this->commonSiteName . ':' . 'Page - Section Overview';
+        $this->contentTypePath = $this->commonSiteName . ':' . 'Page - Index';
     }
 
 
