@@ -9,7 +9,7 @@ use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Interf
 use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Traits\ContentPageTraits;
 use Edu\IU\WCMS\SiteBuilder\ContentTypesAndComponents\Assets\ContentTypes\Traits\ContentTypeTraits;
 
-class PageSectionOverview extends ContentTypeAbstract implements ContentTypeInterface, ContentPageInterface{
+class PageIndex extends ContentTypeAbstract implements ContentTypeInterface, ContentPageInterface{
     use ContentTypeTraits;
     use ContentPageTraits;
 
