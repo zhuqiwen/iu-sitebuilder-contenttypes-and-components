@@ -16,6 +16,15 @@ class SocialMedia implements ComponentInterface{
     public readonly string $site;
     public readonly string $url;
 
+    public array $supportedSites = [
+        'Facebook',
+        'Instagram',
+        'X',
+        'LinkedIn',
+        'YouTube',
+        'BlueSky'
+    ];
+
 
     //identifiers
     public readonly string $identifierSite;
@@ -27,6 +36,8 @@ class SocialMedia implements ComponentInterface{
 
     public function __construct(string $site = '', string $url = '')
     {
+        $site = trim($site);
+        $site = empty($site) || $site == 'Twitter' ? 'X' : $site;
         $this->site = $site;
         $this->url = $url;
 
